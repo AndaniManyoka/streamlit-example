@@ -1,12 +1,9 @@
-from collections import namedtuple
-import altair as alt
-import math
+
+import numpy as np
 import pandas as pd
 import streamlit as st
 
-"""
 
-# Welcome to Streamlit!
 st.title['Overview of Cars']
 st.write["This project explores cars']
 
