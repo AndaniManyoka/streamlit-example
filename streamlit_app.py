@@ -9,5 +9,7 @@ st.write['This project explores cars']
 
 df = pd.read_csv('cars',sep=';',skiprows=[1]
 
-st.write('My first table')
-st.tabele[df]
+df2 = df.groupby('Origin')['Cars'].count().reset_index()
+
+st.write('My First Table')
+st.table(df)
