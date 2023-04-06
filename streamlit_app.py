@@ -9,5 +9,5 @@ st.write['This project explores cars']
 
 df = pd.read_csv('cars',sep=';',skiprows=[1]
 
-st.write['My first table']
+st.write('My first table')
 st.tabele[df]
