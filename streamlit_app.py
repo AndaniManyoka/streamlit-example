@@ -12,4 +12,4 @@ df = pd.read_csv('cars',sep=';',skiprows=[1]
 df2 = df.groupby('Origin')['Cars'].count().reset_index()
 
 st.write('My First Table')
-st.table(df)
+st.table(df2)
