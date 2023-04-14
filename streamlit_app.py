@@ -8,3 +8,6 @@ st.write("Streamlit is fun")
 st.title('My Streamlit App')
 
 st.write('Welcome to my Streamlit app!')
+
+x = st.slider('Select a value for x', 0, 10)
+st.write('You selected:', x)
