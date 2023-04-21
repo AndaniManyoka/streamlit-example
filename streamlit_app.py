@@ -16,7 +16,7 @@ st.write('You selected:', x)
 
 ##Visualizinng the airlines data frame
 # Define the airlines data
-airlines = [...]
+airlines =pd.read_csv('airlines.csv',sep = ';')
 
 # Creating the dataframe and set column names
 airlines = pd.DataFrame(airlines, columns=('index','Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active'))
