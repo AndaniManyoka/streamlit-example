@@ -15,7 +15,7 @@ x = st.slider('Select a value for x', 0, 10)
 st.write('You selected:', x)
 
 Airline = pf.Dataframe(airlines, columns = ('Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Active')
-st.dataframe(Airlines)
+st.dataframe(data=Airlines)
 
 
 
