@@ -14,9 +14,7 @@ st.write('Welcome to my Streamlit app!')
 x = st.slider('Select a value for x', 0, 10)
 st.write('You selected:', x)
 
-import pandas as pd
-import streamlit as st
-
+##Visualizinng the airlines data frame
 # Define the airlines data
 airlines = [...]
 
