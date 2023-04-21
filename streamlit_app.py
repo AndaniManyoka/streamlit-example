@@ -14,8 +14,8 @@ st.write('Welcome to my Streamlit app!')
 x = st.slider('Select a value for x', 0, 10)
 st.write('You selected:', x)
 
-airlines = pd.DataFrame(airlines, columns=('Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active'))
-
+airlines = pd.DataFrame(airlines)
+airlines.columns=('Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active')
 st.dataframe(data=Airlines,width=None,height=None)
 
 
