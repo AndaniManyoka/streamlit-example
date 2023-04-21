@@ -16,7 +16,7 @@ st.write('You selected:', x)
 
 st.write("Airlines dataframe")
 ##visualizing the dataframe
-df = pd.read_csv('airlines1.csv',sep =";")
+df = pd.read_csv('airlines1.csv',sep =",")
 df.columns = ['Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Active']
 
 st.table(df)
