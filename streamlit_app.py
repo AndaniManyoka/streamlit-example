@@ -18,12 +18,8 @@ st.write('You selected:', x)
 # Define the airlines data
 airlines =pd.read_csv('airlines.csv',sep = ';')
 
-# Creating the dataframe and set column names
-airlines = pd.DataFrame(airlines, columns=('index','Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active'))
-
-# Displaying the dataframe in Streamlit
-st.dataframe(data=airlines, width=None, height=None)
-
+# Displaying the dataframe in Streaml
+st.table(airlines)
 
 
 
