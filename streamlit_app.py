@@ -19,7 +19,7 @@ st.write('You selected:', x)
 airlines = [...]
 
 # Creating the dataframe and set column names
-airlines = pd.DataFrame(airlines, columns=('Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active'))
+airlines = pd.DataFrame(airlines, columns=('index','Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active'))
 
 # Displaying the dataframe in Streamlit
 st.dataframe(data=airlines, width=None, height=None)
