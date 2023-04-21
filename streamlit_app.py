@@ -17,6 +17,7 @@ st.write('You selected:', x)
 ##Visualizinng the airlines data frame
 # Define the airlines data
 airlines =pd.read_csv('airlines.csv',sep = ';')
+airlines.columns =['Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Active']
 
 # Displaying the dataframe in Streaml
 st.table(airlines)
