@@ -16,7 +16,7 @@ st.write('You selected:', x)
 
 airlines = pd.DataFrame(airlines, columns=('Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active'))
 
-st.dataframe(data=Airlines)
+st.dataframe(data=Airlines,width=None,height=None)
 
 
 
