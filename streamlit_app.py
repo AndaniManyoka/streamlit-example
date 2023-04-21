@@ -15,14 +15,11 @@ x = st.slider('Select a value for x', 0, 10)
 st.write('You selected:', x)
 
 st.write("Airlines dataframe")
-##Visualizinng the airlines data frame
-# Define the airlines data
-airlines =pd.read_csv('airlines1.csv',sep = ';')
-airlines.columns =['Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Active']
+##visualizing the dataframe
+df = pd.read_csv('airlines1.csv',sep =";")
+df.columns = ['Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Active']
 
-# Displaying the dataframe in Streaml
-
-st.table(airlines)
+st.table(df)
 
 
 
