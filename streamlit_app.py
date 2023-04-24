@@ -23,9 +23,9 @@ st.bar_chart(df2,x='Country',y='Name')
 airpots = pd.read_csv('airports1.csv', sep=",", encoding='utf-8')
 airpots.columns = ['Airport ID','Name','City','Country','IATA','ICAO','Latitude','Longitude','Altitude','Timezone','DST','Tz database time zone',
 'Type','Source']
-airpotsDist = airpots[['Latitude','Longitude']]
-
-st.write('Distribution of the airpots across the globe')
+airpotsDist = airpots[['Latitude','Longitude']].rename(columns={'Latitude': 'latitude'})
+st.write('Distribution of the airports across the globe')
 st.map(data=airpotsDist)
+
 
 
