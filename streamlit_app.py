@@ -54,9 +54,11 @@ st.table(MVAirport_filtered)
 
 
 ##Routes joined with airpots
-RoutesAirpot=pd.merge(airpots[['Airport ID','Name','City','Country','IATA','ICAO','Latitude','Longitude','Altitude','Timezone','DST','Tz database time zone',
-'Type','Source']],routes[['Airline','Airline ID','Source airpot','Source airpot ID','Destination airpot','Destination airpot ID','Codeshare' ,'Stops','Equipment']],on='Airpot ID',left_on='Airpot ID',right_on='Destination airpot ID',how='inner')
+# Merge the two datasets
+merged_data = pd.merge(routes, airpots, left_on='Source airport ID', right_on='Airport ID', how='left')
+merged_data = pd.merge(merged_data, airpots, left_on='Destination airport ID', right_on='Airport ID', how='left', suffixes=('_source', '_destination'))
 
-st.table(RoutesAirpot)
+# Display the merged data in Streamlit
+st.write(merged_data)
 
 
