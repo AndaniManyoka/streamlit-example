@@ -29,7 +29,8 @@ st.map(data=airpotsDist)
 ###Showing the number of airpots per country
 st.write('Number of airpots per country')
 NameofCountry =airpots.groupby('Country')
-CountofAirpotperCountry = NameofCountry.aggregate({'Country'.count()})
+CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airports')
+
 st.table(CountofAirpotperCountry)
          
 
