@@ -26,6 +26,11 @@ airpots.columns = ['Airport ID','Name','City','Country','IATA','ICAO','Latitude'
 airpotsDist = airpots[['Latitude','Longitude']].rename(columns={'Latitude': 'latitude','Longitude':'longitude'})
 st.write('Distribution of the airports across the globe')
 st.map(data=airpotsDist)
-
+###Showing the number of airpots per country
+st.write('Number of airpots per country')
+NameofCountry =airpots.groupby('Country')
+CountofAirpotperCountry = NameofCountry.aggregate({'Country'.count()})
+st.table(CountofAirpotperCountry)
+         
 
 
