@@ -49,13 +49,16 @@ st.line_chart(data=airports_filtered, x='Name', y='Altitude')
 st.write("The airport with the highest altitude is", max_altitude_airport["Name"], "with an altitude of", max_altitude_airport["Altitude"], "feet.")
 
 ##Checking the timezones with the most airpots
+##Checking the timezones with the most airports
 st.write('Time Zones with their respective number of airports')
-TimeZone = airpots.groupby('Tz database time zone')
+airpots_cleaned = airpots.dropna(subset=['Tz database time zone'])
+TimeZone = airpots_cleaned.groupby('Tz database time zone')
 CountofAirportsperTimeZone = TimeZone.size().reset_index(name='Count of Airports per TimeZone')
 CountofAirportsperTimeZone = CountofAirportsperTimeZone.sort_values(by='Count of Airports per TimeZone', ascending=False)
 most_airports_tz = CountofAirportsperTimeZone.iloc[0]['Tz database time zone']
 st.write(f"The timezone with the highest number of airports is {most_airports_tz}")
 st.bar_chart(CountofAirportsperTimeZone, x='Tz database time zone')
+
 
 
 ##Analyzing the routes dataframe
