@@ -46,7 +46,7 @@ routes.columns = ['Airline','Airline ID','Source airpot','Source airpot ID','Des
 
 ##checking mos visited airpot
 st.write('The most visited airports with a count of visits greater than or equal to 100')
-MostVisitedAirport = routes.groupby('Destination airport')
+MostVisitedAirport = routes.groupby('Destination airpot')
 MVAirport = MostVisitedAirport.size().reset_index(name='Count of visits per airport')
 MVAirport_filtered = MVAirport[MVAirport['Count of visits per airport'] >= 100]
 st.table(MVAirport_filtered)
