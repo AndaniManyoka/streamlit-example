@@ -40,3 +40,13 @@ TimeZone=airpots.groupby('Tz database time zone')
 CountofAirpotsperTimeZone=TimeZone.size().reset_index(name='Count of Airpots per TimeZone')
 st.bar_chart(CountofAirpotsperTimeZone,x='Tz database time zone')
 
+##piechart of time zones
+
+fig1, ax1 = plt.subplots()
+ax1.pie(CountofAirportsperTimeZone,labels=TimeZone, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+st.pyplot(fig1)
+
+
