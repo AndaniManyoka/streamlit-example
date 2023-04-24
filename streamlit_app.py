@@ -41,7 +41,12 @@ st.bar_chart(CountofAirpotperCountry, x='Country')
 ##grouping the airpots looking at the altitude
 
 st.write('Bar graph of the Altitude of all the airpots across the globe,Altitude(in feet)')
-st.line_chart(data=airpots, x='Name', y='Altitude')
+airports_filtered = airports[airports['Altitude'] > 0]
+# Find the airport with the highest altitude
+max_altitude_airport = airports_data.loc[airports_data["Altitude"].idxmax()]
+st.line_chart(data=airports_filtered, x='Name', y='Altitude')
+# Display the name of the airport with the highest altitude
+st.write("The airport with the highest altitude is", max_altitude_airport["Name"], "with an altitude of", max_altitude_airport["Altitude"], "feet.")
 
 ##Checking the timezones with the most airpots
 st.write('Time Zones with their respective number of airpots')
