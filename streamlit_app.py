@@ -72,7 +72,7 @@ st.table(MVAirport_filtered)
 
 
 ##Airlines merged with routes dataframe
-merged_df = pd.merge(df2, routes, on='Airline ID')
+merged_df = pd.merge(df, routes, on='Airline ID')
 st.table(merged_df)
 
 
