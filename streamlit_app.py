@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+!pip install --upgrade matplotlib
 
 st.title("Data Analysis with Python")
 st.write("This dashboard will showcase interesting facts about the OpenFlights Organisation")
@@ -43,8 +44,6 @@ st.bar_chart(CountofAirpotsperTimeZone,x='Tz database time zone')
 ##piechart of time zones
 import streamlit as st
 import matplotlib.pyplot as plt
-!pip install --upgrade matplotlib
-
 
 
 fig1, ax1 = plt.subplots()
