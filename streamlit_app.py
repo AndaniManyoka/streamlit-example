@@ -26,11 +26,12 @@ st.map(data=airpotsDist)
 st.write('Number of airpots per country')
 NameofCountry =airpots.groupby('Country')
 CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airports')
+min_airports = count_of_airports_per_country['Count of Airports'].min()
+max_airports = count_of_airports_per_country['Count of Airports'].max()
+st.write(f"Minimum number of airports: {min_airports}")
+st.write(f"Maximum number of airports: {max_airports})
 st.bar_chart(CountofAirpotperCountry,x='Country')
-min_airports = CountofAirportperCountry['Count of Airports'].min()
-max_airports = CountofAirportperCountry['Count of Airports'].max()
-st.write('Minimum number of airports:', min_airports)
-st.write('Maximum number of airports:', max_airports)
+
 
 #st.table(CountofAirpotperCountry)
 ##grouping the airpots looking at the altitude
