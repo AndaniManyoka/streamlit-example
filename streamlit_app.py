@@ -8,7 +8,7 @@ st.write("Interesting fact about the Airlines dataframe")
 
 # visualizing the dataframe
 df = pd.read_csv('airlines1.csv', sep=",")
-df.columns = ['AirlineID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active']
+df.columns = ['Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active']
 
 df2 = df[df['Active'] == 'Y'].groupby('Country')['Name'].count().reset_index()
 st.write('Number of active airlines per country')
@@ -60,7 +60,7 @@ st.bar_chart(CountofAirportsperTimeZone, x='Tz database time zone')
 
 ##Analyzing the routes dataframe
 routes = pd.read_csv('routes1.csv',sep=",")
-routes.columns = ['Airline','AirlineID','Source airpot','Source airport ID','Destination airpot','Destination airpot ID','Codeshare' ,'Stops','Equipment']
+routes.columns = ['Airline','Airline ID','Source airpot','Source airport ID','Destination airpot','Destination airpot ID','Codeshare' ,'Stops','Equipment']
 
 ##checking mos visited airpot
 st.write('The most visited airports with a count of visits greater than or equal to 100')
@@ -71,8 +71,9 @@ MVAirport_filtered = MVAirport_filtered.sort_values(by='Count of visits per airp
 st.table(MVAirport_filtered)
 
 
-##Airlines merged with routes dataframe
-merged_df = pd.merge(df, routes, on='AirlineID')
+# Merge airlines with routes dataframe
+merged_df = pd.merge(df, routes, on='Airline ID')
 st.table(merged_df)
+
 
 
