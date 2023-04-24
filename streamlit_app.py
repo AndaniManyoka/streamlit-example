@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 st.title("Data Analysis with Python")
-st.write("This dashboard will showcase interesting facts about the OpenFlights Organisation")
+st.write("This dashboard will showcase information about the OpenFlights Organisation: depicting the busiest airpots,time zones, distribution of airpots globaly,most visited airpots , and more interesting facts")
 
 st.write("Interesting fact about the Airlines dataframe")
 
@@ -48,7 +48,9 @@ routes.columns = ['Airline','Airline ID','Source airpot','Source airpot ID','Des
 st.write('The most visited airpot')
 MostVisitedAirpot=routes.groupby('Destination airpot')
 MVAirpot=MostVisitedAirpot.size().reset_index(name ='Count of visits per airpot')
-st.table(MVAirpot)
+MVAirpot_filtered = MVAirpot[MVAirpot['Count of visits per airport'] >= 100]
+st.table(MVAirpot_filtered)
+
 
 ##Routes joined with airpots
 RoutesAirpot=pd.merge(airpots[['Airport ID','Name','City','Country','IATA','ICAO','Latitude','Longitude','Altitude','Timezone','DST','Tz database time zone',
