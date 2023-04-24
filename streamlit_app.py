@@ -1,24 +1,19 @@
-
 import pandas as pd
 import streamlit as st
-import numpy as np
-import matplotlib.pyplot as plt
-
 
 st.title("Data Analysis with Python")
 st.write("This dashboard will showcase interesting facts about the OpenFlights Organisation")
 
+st.write("Interesting fact about the Airlines dataframe")
 
-st.write(" Interesting fact about the Airlines dataframe")
-##visualizing the dataframe
-df = pd.read_csv('airlines1.csv',sep =",")
-df.columns = ['Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Active']
+# visualizing the dataframe
+df = pd.read_csv('airlines1.csv', sep=",")
+df.columns = ['Airline ID', 'Name', 'Alias', 'IATA', 'ICAO', 'Callsign', 'Country', 'Active']
 
-#df2 = df.groupby(['Country', 'active'])['Name'].count().reset_index()
+df2 = df[df['Active'] == 'Y'].groupby('Country')['Name'].count().reset_index()
+st.write('Number of active airlines per country')
+st.bar_chart(df2.set_index('Country'))
 
-df2 = df.groupby('Country','Active'=="Y")['Name'].count().reset_index()
-st.write('Number of Active airlines per Country')
-st.pyplot(df2,x='Country',y='Name')
 
 ##looking at the airpots data
 airpots = pd.read_csv('airports1.csv', sep=",", encoding='utf-8')
