@@ -27,6 +27,10 @@ st.write('Number of airpots per country')
 NameofCountry =airpots.groupby('Country')
 CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airports')
 st.bar_chart(CountofAirpotperCountry,x='Country')
+min_airports = CountofAirportperCountry['Count of Airports'].min()
+max_airports = CountofAirportperCountry['Count of Airports'].max()
+st.write('Minimum number of airports:', min_airports)
+st.write('Maximum number of airports:', max_airports)
 
 #st.table(CountofAirpotperCountry)
 ##grouping the airpots looking at the altitude
@@ -55,11 +59,11 @@ st.table(MVAirport_filtered)
 
 ##Routes joined with airpots
 # Merge the two datasets
-merged_data = pd.merge(routes, airpots, left_on='Source airport ID', right_on='Airport ID', how='left')
+#merged_data = pd.merge(routes, airpots, left_on='Source airport ID', right_on='Airport ID', how='left')
 
-merged_data = pd.merge(merged_data, airpots, left_on='Destination airport ID', right_on='Airport ID', how='left', suffixes=('_source', '_destination'))
+#merged_data = pd.merge(merged_data, airpots, left_on='Destination airport ID', right_on='Airport ID', how='left', suffixes=('_source', '_destination'))
 
 # Display the merged data in Streamlit
-st.write(merged_data)
+#st.write(merged_data)
 
 
