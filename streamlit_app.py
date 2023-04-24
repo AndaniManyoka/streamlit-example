@@ -23,19 +23,16 @@ airpotsDist = airpots[['Latitude','Longitude']].rename(columns={'Latitude': 'lat
 st.write('Distribution of the airports across the globe')
 st.map(data=airpotsDist)
 ###Showing the number of airpots per country
-st.write('Number of airpots per country')
-NameofCountry =airpots.groupby('Country')
+###Showing the number of airpots per country
+st.write('Number of airports per country')
+NameofCountry = airpots.groupby('Country')
 CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airports')
-min_airports = CountofAirportperCountry['Count of Airports'].min()
-max_airports = CountofAirportperCountry['Count of Airports'].max()
-min_country = CountofAirportperCountry.loc[CountofAirportperCountry['Count of Airports'] == min_airports, 'Country'].iloc[0]
-max_country = CountofAirportperCountry.loc[CountofAirportperCountry['Count of Airports'] == max_airports, 'Country'].iloc[0]
-
+min_airports = CountofAirpotperCountry['Count of Airports'].min()
+max_airports = CountofAirpotperCountry['Count of Airports'].max()
 st.write(f"Minimum number of airports: {min_airports}")
 st.write(f"Maximum number of airports: {max_airports}")
-st.write(f"Country with minimum airports: {min_country}")
-st.write(f"Country with maximum airports: {max_country}")
-st.bar_chart(CountofAirpotperCountry,x='Country')
+st.bar_chart(CountofAirpotperCountry, x='Country')
+
 
 
 #st.table(CountofAirpotperCountry)
