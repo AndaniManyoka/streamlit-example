@@ -30,6 +30,8 @@ st.bar_chart(CountofAirpotperCountry,x='Country')
 
 st.table(CountofAirpotperCountry)
 ##grouping the airpots looking at the altitude
+
+st.write('Bar graph of the Altitude of all the airpots,Altitude(in feet)')
 st.line_chart(data=airpots, x='Name', y='Altitude')
 
 
