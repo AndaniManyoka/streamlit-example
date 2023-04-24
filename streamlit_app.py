@@ -29,6 +29,7 @@ CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airpor
 st.bar_chart(CountofAirpotperCountry,x='Country')
 
 st.table(CountofAirpotperCountry)
-         
+##grouping the airpots looking at the altitude
+st.line_chart(data=airpots, *, x='Name', y='Altitude')
 
 
