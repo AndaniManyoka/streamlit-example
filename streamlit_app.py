@@ -73,11 +73,11 @@ st.table(MVAirport_filtered)
 
 # Merge airlines with routes dataframe
 # Merge airlines with routes dataframe
-df = df.rename(columns={'Airline ID': 'Airline ID'})
-routes = routes.rename(columns={'Airline ID': 'Airline ID'})
+#df = df.rename(columns={'Airline ID': 'Airline ID'})
+#routes = routes.rename(columns={'Airline ID': 'Airline ID'})
 
-merged_df = pd.merge(df, routes, on='Airline ID')
-st.table(merged_df)
+#merged_df = pd.merge(df, routes, on='Airline ID')
+#st.table(merged_df)
 
 
 
