@@ -52,6 +52,9 @@ st.write("The airport with the highest altitude is", max_altitude_airport["Name"
 st.write('Time Zones with their respective number of airpots')
 TimeZone=airpots.groupby('Tz database time zone')
 CountofAirpotsperTimeZone=TimeZone.size().reset_index(name='Count of Airpots per TimeZone')
+CountofAirportsperTimeZone = CountofAirportsperTimeZone.sort_values(by='Count of Airports per TimeZone', ascending=False)
+most_airports_tz = CountofAirportsperTimeZone.iloc[0]['Tz database time zone']
+st.write(f"The timezone with the highest number of airports is {most_airports_tz}")
 st.bar_chart(CountofAirpotsperTimeZone,x='Tz database time zone')
 
 ##Analyzing the routes dataframe
@@ -63,6 +66,7 @@ st.write('The most visited airports with a count of visits greater than or equal
 MostVisitedAirport = routes.groupby('Destination airpot')
 MVAirport = MostVisitedAirport.size().reset_index(name='Count of visits per airport')
 MVAirport_filtered = MVAirport[MVAirport['Count of visits per airport'] >= 100]
+MVAirport_filtered = MVAirport_filtered.sort_values(by='Count of visits per airport', ascending=False)
 st.table(MVAirport_filtered)
 
 
