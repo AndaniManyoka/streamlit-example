@@ -15,7 +15,7 @@ df.columns = ['Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Ac
 
 df2 = df.groupby('Country')['Name'].count().reset_index()
 st.write('Number of airlines per Country')
-st.table(df2)
+st.bar_chart(df2,x='Country',y='Name')
 
 
 
