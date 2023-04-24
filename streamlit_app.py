@@ -2,6 +2,7 @@
 import pandas as pd
 import streamlit as st
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 st.title("Data Analysis with Python")
@@ -17,7 +18,7 @@ df.columns = ['Airline ID','Name','Alias','IATA','ICAO','Callsign','Country','Ac
 
 df2 = df.groupby('Country','Active'=="Y")['Name'].count().reset_index()
 st.write('Number of Active airlines per Country')
-st.bar_chart(df2,x='Country',y='Name')
+st.pyplot(df2,x='Country',y='Name')
 
 ##looking at the airpots data
 airpots = pd.read_csv('airports1.csv', sep=",", encoding='utf-8')
