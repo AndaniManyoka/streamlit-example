@@ -29,6 +29,8 @@ NameofCountry = airpots.groupby('Country')
 CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airports')
 min_airports = CountofAirpotperCountry['Count of Airports'].min()
 max_airports = CountofAirpotperCountry['Count of Airports'].max()
+min_country = CountofAirpotperCountry.loc[CountofAirpotperCountry['Count of Airports'] == min_airports, 'Country'].iloc[0]
+max_country = CountofAirpotperCountry.loc[CountofAirpotperCountry['Count of Airports'] == max_airports, 'Country'].iloc[0]
 st.write(f"Minimum number of airports: {min_airports}")
 st.write(f"Maximum number of airports: {max_airports}")
 st.bar_chart(CountofAirpotperCountry, x='Country')
