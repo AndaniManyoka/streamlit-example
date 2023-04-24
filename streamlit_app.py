@@ -41,6 +41,9 @@ CountofAirpotsperTimeZone=TimeZone.size().reset_index(name='Count of Airpots per
 st.bar_chart(CountofAirpotsperTimeZone,x='Tz database time zone')
 
 ##piechart of time zones
+import streamlit as st
+import matplotlib.pyplot as plt
+
 
 fig1, ax1 = plt.subplots()
 ax1.pie(CountofAirportsperTimeZone,labels=TimeZone, autopct='%1.1f%%',
