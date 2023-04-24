@@ -45,11 +45,12 @@ routes = pd.read_csv('routes1.csv',sep=",")
 routes.columns = ['Airline','Airline ID','Source airpot','Source airpot ID','Destination airpot','Destination airpot ID','Codeshare' ,'Stops','Equipment']
 
 ##checking mos visited airpot
-st.write('The most visited airpot')
-MostVisitedAirpot=routes.groupby('Destination airpot')
-MVAirpot=MostVisitedAirpot.size().reset_index(name ='Count of visits per airpot')
-MVAirpot_filtered = MVAirpot[MVAirpot['Count of visits per airport'] >= 100]
-st.table(MVAirpot_filtered)
+st.write('The most visited airports with a count of visits greater than or equal to 100')
+MostVisitedAirport = routes.groupby('Destination airport')
+MVAirport = MostVisitedAirport.size().reset_index(name='Count of visits per airport')
+MVAirport_filtered = MVAirport[MVAirport['Count of visits per airport'] >= 100]
+st.table(MVAirport_filtered)
+
 
 
 ##Routes joined with airpots
