@@ -50,7 +50,9 @@ MostVisitedAirpot=routes.groupby('Destination airpot')
 MVAirpot=MostVisitedAirpot.size().reset_index(name ='Count of visits per airpot')
 st.table(MVAirpot)
 
+##Routes joined with airpots
+RoutesAirpot=pd.merge(airpots,routes,on='Airpot ID',left_on='Airpot ID',right_on='Destination airpot ID',how='inner')
 
-
+st.table(RoutesAirpot)
 
 
