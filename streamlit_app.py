@@ -40,6 +40,15 @@ TimeZone=airpots.groupby('Tz database time zone')
 CountofAirpotsperTimeZone=TimeZone.size().reset_index(name='Count of Airpots per TimeZone')
 st.bar_chart(CountofAirpotsperTimeZone,x='Tz database time zone')
 
+##Analyzing the routes dataframe
+routes = pd.read_csv('routes1.csv',sep=",")
+routes.columns = ['Airline','Airline ID','Source airpot','Source airpot ID','Destination airpot','Destination airpot ID','Codeshare' ,'Stops','Equipment']
+
+##checking mos visited airpot
+st.write('The most visited airpot')
+MostVisitedAirpot=routes.groupby('Destination airpot')
+MVAirpot=MostVisitedAirpot.size().reset_index(name ='Count of visits per airpot')
+st.table(MVAirpot)
 
 
 
