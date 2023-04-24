@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-!pip install --upgrade matplotlib
 
 st.title("Data Analysis with Python")
 st.write("This dashboard will showcase interesting facts about the OpenFlights Organisation")
