@@ -34,4 +34,9 @@ st.table(CountofAirpotperCountry)
 st.write('Bar graph of the Altitude of all the airpots,Altitude(in feet)')
 st.line_chart(data=airpots, x='Name', y='Altitude')
 
+##Checking the timezones with the most airpots
+st.write('Checking the busiest time zones')
+TimeZone=airpots.groupby('Tz database time zone')
+CountofAirpotsperTimeZone=TimeZone.size().reset_index(name='Count of Airpots per TimeZone')
+st.bar_chart(CountofAirpotsperTimeZone,x='Tz database time zone')
 
