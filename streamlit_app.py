@@ -50,7 +50,7 @@ st.write("The airport with the highest altitude is", max_altitude_airport["Name"
 
 ##Checking the timezones with the most airpots
 st.write('Time Zones with their respective number of airports')
-TimeZone = airports.groupby('Tz database time zone')
+TimeZone = airpots.groupby('Tz database time zone')
 CountofAirportsperTimeZone = TimeZone.size().reset_index(name='Count of Airports per TimeZone')
 CountofAirportsperTimeZone = CountofAirportsperTimeZone.sort_values(by='Count of Airports per TimeZone', ascending=False)
 most_airports_tz = CountofAirportsperTimeZone.iloc[0]['Tz database time zone']
