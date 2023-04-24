@@ -19,5 +19,13 @@ df2 = df.groupby('Country','Active'=="Y")['Name'].count().reset_index()
 st.write('Number of Active airlines per Country')
 st.bar_chart(df2,x='Country',y='Name')
 
+##looking at the airpots data
+airpots = pd.read_csv('airpots1.csv',sep=",")
+airpots.columns = ['Airport ID','Name','City','Country','IATA','ICAO','Latitude','Longitude','Altitude','Timezone','DST','Tz database time zone',
+'Type','Source']
+airpotsDist = airpots[['Latitude','Longitude']]
+
+st.write('Distribution of the airpots across the globe')
+st.map(data=airpotsDist)
 
 
