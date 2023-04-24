@@ -30,6 +30,7 @@ st.map(data=airpotsDist)
 st.write('Number of airpots per country')
 NameofCountry =airpots.groupby('Country')
 CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airports')
+st.bar_chart(CountofAirpotperCountry,x='Country')
 
 st.table(CountofAirpotperCountry)
          
