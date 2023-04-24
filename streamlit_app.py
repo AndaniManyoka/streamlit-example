@@ -56,6 +56,7 @@ st.table(MVAirport_filtered)
 ##Routes joined with airpots
 # Merge the two datasets
 merged_data = pd.merge(routes, airpots, left_on='Source airport ID', right_on='Airport ID', how='left')
+
 merged_data = pd.merge(merged_data, airpots, left_on='Destination airport ID', right_on='Airport ID', how='left', suffixes=('_source', '_destination'))
 
 # Display the merged data in Streamlit
