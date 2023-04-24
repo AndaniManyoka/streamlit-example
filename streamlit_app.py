@@ -23,7 +23,7 @@ airpotsDist = airpots[['Latitude','Longitude']].rename(columns={'Latitude': 'lat
 st.write('Distribution of the airports across the globe')
 st.map(data=airpotsDist)
 ###Showing the number of airpots per country
-###Showing the number of airpots per country
+
 st.write('Number of airports per country')
 NameofCountry = airpots.groupby('Country')
 CountofAirpotperCountry = NameofCountry.size().reset_index(name='Count of Airports')
@@ -35,9 +35,6 @@ st.write(f"Minimum number of airports: {min_airports}")
 st.write(f"Maximum number of airports: {max_airports}")
 st.bar_chart(CountofAirpotperCountry, x='Country')
 
-
-
-#st.table(CountofAirpotperCountry)
 ##grouping the airpots looking at the altitude
 
 st.write('Bar graph of the Altitude of all the airpots across the globe,Altitude(in feet)')
@@ -48,7 +45,7 @@ st.line_chart(data=airports_filtered, x='Name', y='Altitude')
 # Display the name of the airport with the highest altitude
 st.write("The airport with the highest altitude is", max_altitude_airport["Name"], "with an altitude of", max_altitude_airport["Altitude"], "feet.")
 
-##Checking the timezones with the most airpots
+
 ##Checking the timezones with the most airports
 st.write('Time Zones with their respective number of airports')
 airpots_cleaned = airpots.dropna(subset=['Tz database time zone'])
@@ -74,14 +71,8 @@ MVAirport_filtered = MVAirport_filtered.sort_values(by='Count of visits per airp
 st.table(MVAirport_filtered)
 
 
-
-##Routes joined with airpots
-# Merge the two datasets
-#merged_data = pd.merge(routes, airpots, left_on='Source airport ID', right_on='Airport ID', how='left')
-
-#merged_data = pd.merge(merged_data, airpots, left_on='Destination airport ID', right_on='Airport ID', how='left', suffixes=('_source', '_destination'))
-
-# Display the merged data in Streamlit
-#st.write(merged_data)
+##Airlines merged with routes dataframe
+merged_df = pd.merge(df2, routes, on='Airline ID')
+st.table(merged_df)
 
 
